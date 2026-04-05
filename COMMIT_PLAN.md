@@ -12,7 +12,7 @@
 - Create `data/` with 12 input files (strings length >= 25) and expected outputs
 - Include the worked example from the assignment
 
-## Commit 4 (Partner): Benchmarking script — time solver on all inputs
+## Commit 4: Benchmarking script — time solver on all inputs
 - Create `src/benchmark.py` to run and time the solver on each input file
 - Print timing results
 
@@ -20,9 +20,12 @@
 - Extend benchmarking to produce a runtime graph (`data/runtime_graph.png`)
 - Covers the empirical comparison deliverable
 
-## Commit 6 (Partner): README.md with documentation and written answers
+## Commit 6 (Partner): README.md — build/run instructions and project docs
 - Student names and UFIDs
 - Build/run instructions with example commands
+- Pointers to example input/output files
+- Any assumptions
+
+## Commit 7 (Partner): README.md — written answers for Questions 2 and 3
 - Question 2: Recurrence equation, base cases, correctness explanation
 - Question 3: Pseudocode and Big-O runtime analysis
-- Pointers to example input/output files
