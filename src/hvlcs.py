@@ -46,6 +46,29 @@ def build_dp_table(char_values, a, b):
 
     return dp
 
+def reconstruct(dp, char_values, a, b):
+    """Backtrack through the DP table to find the actual subsequence."""
+    i = len(a)
+    j = len(b)
+    result = []
+
+    while i > 0 and j > 0:
+        if a[i-1] == b[j-1]:
+            # this character was part of the optimal subsequence
+            result.append(a[i-1])
+            i -= 1
+            j -= 1
+        elif dp[i-1][j] >= dp[i][j-1]:
+            # came from above
+            i -= 1
+        else:
+            # came from the left
+            j -= 1
+
+    # we built it backwards so reverse it
+    result.reverse()
+    return ''.join(result)
+
 def main():
     if len(sys.argv) < 2:
         print("Usage: python hvlcs.py <input_file>")
@@ -54,8 +77,11 @@ def main():
     char_values, a, b = parse_input(sys.argv[1])
     dp = build_dp_table(char_values, a, b)
 
-    # print the max value
-    print(dp[len(a)][len(b)])
+    max_value = dp[len(a)][len(b)]
+    subseq = reconstruct(dp, char_values, a, b)
+
+    print(max_value)
+    print(subseq)
 
 if __name__ == '__main__':
     main()
